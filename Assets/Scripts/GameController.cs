@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    int [] tiles;
+    int boardDimensionX;
+    int boardDimensionY;
+    [SerializeField] GameObject tilePrefab;
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +18,16 @@ public class GameController : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void GameBoardSpawn()
+    {
+        for(int x = 0; x < boardDimensionX; x++)
+        {
+            for(int y = 0; y < boardDimensionY; y++)
+            {
+                Instantiate(tilePrefab, new Vector3(x, y, 0), Quaternion.identity);
+            }
+        }
     }
 }
